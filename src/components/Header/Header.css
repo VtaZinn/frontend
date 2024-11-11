@@ -7,6 +7,11 @@ h1 {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .header {
   background-image: url('../../images/esportes.png');
   background-size: cover;
@@ -314,6 +319,19 @@ body {
   display: none;
 }
 
+.menu-itens {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-itens a {
+  color: white;
+}
+
+.menu-itens li {
+  font-weight: bolder;
+  cursor: pointer;
+}
 
 @media (min-width: 500px) and (max-width: 768px) {
   .header-menu h1 {

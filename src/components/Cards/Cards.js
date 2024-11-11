@@ -30,22 +30,20 @@ function Card(props) {
     }
 
     localStorage.setItem('saved', JSON.stringify(savedItems));
-
-    console.log(savedItems);
   };
   
   return(
     <div className='content-cards_text'>
-      <div className={`content-cards-save  ${saved === false ? 'content-cards-icon' : 'content-cards-iconSaved' }`} onClick={handleSave}>
-
-      </div>
-      <img src={props.content.images[0]?.url} alt={props.name} className='card-image'/>
-      <div className='content-text'>
-        <h3>{props.content.name}</h3>
-        <p className='content-text_gray'> DATA: {props.content.dates.start.localDate}</p>
-        <p>HORÁRIO: {props.content.dates.start.localTime}</p>
-        <p className='content-text_gray'> ATRAÇÃO: {attractions && attractions[0]?.name}</p>
-      </div>
+      <a href={props.content.url} target='blank'>
+        <div className={`content-cards-save  ${saved === false ? 'content-cards-icon' : 'content-cards-iconSaved' }`} onClick={handleSave}></div>
+        <img src={props.content.images[0]?.url} alt={props.name} className='card-image'/>
+        <div className='content-text'>
+          <h3>{props.content.name}</h3>
+          <p className='content-text_gray'> DATA: {props.content.dates.start.localDate}</p>
+          <p>HORÁRIO: {props.content.dates.start.localTime}</p>
+          <p className='content-text_gray'> ATRAÇÃO: {attractions && attractions[0]?.name}</p>
+        </div>
+      </a>
     </div>
   );
 }

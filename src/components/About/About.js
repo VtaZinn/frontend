@@ -1,8 +1,9 @@
-import './Header.css';
-import React, { useEffect, useState, useRef } from 'react';
-import { search } from '../../api/events';
+import { useEffect, useRef, useState } from 'react';
+import '../Header/Header.css';
+import './About.css'
+import Footer from '../Footer/Footer';
 
-function Header(props) {
+function About() {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenSubscribe, setOpenSubiscribe] = useState(false);
 
@@ -22,40 +23,13 @@ function Header(props) {
   const [emailLogin, setEmailLogin] = useState('');
   const [passwordLogin, setPasswordLogin] = useState('');
   const [error, setError] = useState(false);
-  const [keyword, setKeyWord] = useState('');
 
-  // Referências para os campos de e-mail no login e na inscrição
   const emailLoginRef = useRef(null);
   const emailSubscribeRef = useRef(null);
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape' || event.keyCode === 27) {
-        closeModal(); 
-        closeModalSubscribe();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  const handleSearch = async () => {
-    const response = await search(keyword);
-    props.setResult(response);
-  };
-
-  useEffect(() => {
-    handleSearch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const handleSubscribe = () => {
     localStorage.setItem('email', email);
@@ -76,6 +50,7 @@ function Header(props) {
       setError(true);
     }
   };
+
   useEffect(() => {
     if (isOpen && emailLoginRef.current) {
       emailLoginRef.current.focus();
@@ -88,8 +63,8 @@ function Header(props) {
     }
   }, [isOpenSubscribe]);
 
-  return (
-    <>
+  return(
+  <>
       <div className="header">
         <div className="header-menu">
           <h1>TripleSports</h1>
@@ -119,19 +94,8 @@ function Header(props) {
             </nav>
           </div>
         </div>
-        <div className='content-header'>
-          <div className='content-header_title'>
-            <h1>Quais eventos</h1>
-            <h1>estão acontecendo?</h1>
-            <p>Encontre eventos perto de sua casa!</p>
-            <div className='content-header_button'>
-              <input type='text' placeholder='Inserir tema' onChange={(e) => { setKeyWord(e.target.value); }} />
-              <button className='btn-search' onClick={handleSearch}>Procurar</button>
-            </div>
-          </div>
-        </div>
       </div>
-
+      
       {/* Modal de Login */}
       {isOpen && (
         <div className="modal-overlay" onClick={closeModal}>
@@ -201,8 +165,36 @@ function Header(props) {
           </div>
         </div>
       )}
-    </>
+
+      <div className='content-about'>
+        <div className='about'>
+          <h1>Sobre o TripleSport</h1>
+          <p>Bem-vindo ao TripleSport, o seu portal de referência para os melhores 
+            eventos esportivos e atividades de entretenimento ao redor do mundo. 
+            Nossa missão é conectar entusiastas do esporte, atletas e organizadores 
+            de eventos, proporcionando uma plataforma fácil de usar para descobrir, 
+            acompanhar e participar dos eventos mais emocionantes.</p>
+          <h3>Quem Somos</h3>
+          <p>
+          Somos uma equipe apaixonada por esportes, sempre à procura de novas maneiras 
+          de tornar a experiência dos fãs mais envolvente e acessível. Com o TripleSport, 
+          queremos que você nunca perca a chance de participar ou assistir ao seu evento favorito, 
+          seja ele um campeonato de futebol, uma maratona, competições de e-sports, ou até eventos 
+          mais exclusivos como torneios de esportes radicais.
+          </p>
+          <h3>Nosso Compromisso</h3>
+          <p>Acreditamos que o esporte tem o poder de transformar vidas e comunidades.
+             Nosso compromisso é ajudar a criar oportunidades para todos, seja para aqueles
+              que buscam praticar, competir ou simplesmente se divertir assistindo. Trabalhamos 
+              para garantir que nossa plataforma seja sempre confiável, acessível e com a melhor
+              experiência para nossos usuários.</p>
+        </div>
+      </div>
+      <div className='footer'>
+        <Footer/>
+      </div>
+  </>    
   );
 }
 
-export default Header;
+export default About;
