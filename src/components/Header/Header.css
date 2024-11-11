@@ -1,0 +1,464 @@
+body {
+  margin: 0;
+  color: white;
+}
+
+h1 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.header {
+  background-image: url('../../images/esportes.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d1d2d6;
+}
+
+.header-menu h1 {
+  margin-left: 100px;
+}
+
+.header-menu__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+  margin-right: 100px;
+}
+
+.title-header{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid white;
+}
+
+.button-enter{
+  background-color: transparent;
+  border-radius: 30px;
+  border: 2px solid white;
+  color: white;
+  font-weight: bold;
+  width: 176px;
+  height: 50px;
+}
+
+.content-header{
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-header_title{
+  max-width: 700px;
+}
+
+
+.content-header_title h1{
+  font-size: 60px;
+}
+
+.content-header_title p{
+  font-size: 20px;
+}
+
+.content-header_button{
+  max-width: 600px;
+  margin-top: 64px;
+  position: relative;
+}
+
+.btn-search:hover {
+  cursor: pointer;
+  background-color: #347EFF;
+}
+
+.btn-search:active {
+  background-color: #2A65CC;
+}
+
+.content-header_button input{
+  width: 100%;
+  height: 65px;
+  border: none;
+  border-radius: 100px;
+  z-index: 1;
+  position: relative;
+  padding: 20px;
+}
+
+
+.content-header_button input:focus {
+  outline: none;
+}
+
+.content-header_button button{
+  background-color: #2F71E5;
+  border: none;
+  color: white;
+  font-weight: bolder;
+  z-index: 2;
+  height: 66px;
+  width: 170px;
+  border-radius: 100px;
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  right: -42px;
+}
+
+/* Botão para abrir o modal */
+.open-modal-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Overlay do modal com fundo semi-transparente */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background-color: #555;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  width: 430px;
+  height: 380px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative
+}
+
+.modal-content_inputs {
+  width: 90%;
+}
+
+.modal-content_inputs p{
+  
+}
+
+.modal-content h2 {
+  color: black;
+}
+
+.modal-content p {
+  color: #2F71E5;
+}
+
+/* Campo de entrada de texto */
+.input-field {
+  width: 358px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid 	#A0A0A0;
+}
+/* Botão de envio */
+.submit-button {
+  padding: 10px;
+  width: 360px;
+  height: 64px;
+  font-size: 16px;
+  margin-top: 30px;
+  background-color: #2F71E5;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.modal-contetn_signup {
+  text-align: center;
+  color: black !important;
+}
+
+.modal-contetn_signup a{
+  text-decoration: none;
+  color: #2F71E5;
+}
+
+.modal-content_subscribe {
+  height: 500px;
+}
+
+
+/* MENU HAMBURGUER */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.hamburger {
+  display: none; /* Ocultando por padrão */
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 12px;
+}
+
+.hamburger .line {
+  height: 4px;
+  background-color: white;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav-menu_itens {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-enter_mobile {
+  width: 288px;
+}
+
+.nav-menu ul li {
+  padding: 10px;
+}
+
+.nav-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.modal-content_signup {
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: underline;
+  color:#2F71E5;;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header-menu_mobile  {
+  display: none;
+}
+
+.menu-itens {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-itens a {
+  color: white;
+}
+
+.menu-itens li {
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .header-menu h1 {
+    margin-left: 50px;
+    font-size: 20px;
+  }
+
+  .content-header_title h1{
+    max-width: 425px;
+    font-size: 36px;
+  }
+
+  .button-enter {
+    width: 152px;
+  }
+
+  .content-header_button {
+    max-width: 100%;
+  }
+
+  .content-header_button input {
+    width: 80%;
+  }
+
+  .content-header_button button {
+    right: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-menu_mobile {
+    display: block;
+  }
+
+  .hamburger {
+    display: flex; /* Exibe o ícone hamburger */
+}
+
+  .header-menu {
+    display: none;
+  }
+
+  .content-header_title h1{
+    max-width: 285px;
+    font-size: 36px;
+  }
+
+  .content-header_title p {
+    max-width: 288px;
+    font-size: 18px;
+  }
+
+  .content-header_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .content-header_button input{
+    width: 92%;
+    height: 56px;
+  }
+
+  .content-header_button button {
+    position: unset;
+    width: 95%;
+    height: 56px;
+    margin-top: 16px;
+  }
+
+  .header-menu_mobile {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+  }
+
+  .header-menu_mobile-background {
+    background-color: #1A1B22;
+  }
+
+  .header-menu_mobile h1{
+    font-size: 16px;
+  }
+
+  .nav-menu {
+    display: none; /* Inicialmente o menu está oculto */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #1A1B22;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nav-menu.active {
+    display: flex; /* Quando a classe 'active' for adicionada, o menu será exibido */
+    margin-top: -4px;
+}
+
+.nav-menu ul {
+    flex-direction: column;
+    width: 100%;
+    margin: 0px;
+}
+
+.nav-menu ul li {
+    text-align: center;
+    width: 100%;
+}
+
+.modal-content {
+  width: 100%;
+}
+
+.modal-content_inputs p {
+  margin-top: 20px;
+}
+
+.input-field {
+  width: 100%;
+}
+
+.submit-button {
+  width: 100%;
+}
+}
+
